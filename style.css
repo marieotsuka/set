@@ -4,9 +4,10 @@
 }
 :root{
 	--shape-size: 50px;
-	--card-width: calc( var(--shape-size)*3.5);
-	--card-height: calc( var(--shape-size)*4.75);
-	--color: rgb(80 80 80);
+	--card-width: calc( var(--shape-size)*4);
+	--card-height: calc( var(--shape-size)*5);
+	--color: rgb(40 40 40);
+	--color-accent: rgb(150 180 190);
 	--color-grey: rgb(230 220 200);
 	--color-white: white;
 	--color1: rgb(255 0 0);
@@ -19,14 +20,20 @@
 
 body{
 	font-size: var(--size-base);
+	color: var(--color);
 	font-family: Courier New, monospace;
 	font-weight: 500;
 	font-style: normal;
+	width: 100vw;
+	overflow: scroll;
 }
 h1,h2,h3,h4,h5,h6{
 	font-weight: normal;
 	font-size: var(--size-base);
 	margin-bottom: var(--pad);
+}
+h3{
+	margin-top: var(--pad);
 }
 button{
 	font-family: Courier New, monospace;
@@ -42,6 +49,10 @@ figure{
 img.img-card{
 	display: block;
 	width: 100%;
+}
+.caption{
+	font-size: 0.8em;
+	margin-top: 1em;
 }
 /*SHAPE CHOICES*/
 .shape1{
@@ -85,9 +96,7 @@ img.img-card{
 	position: relative;
 	background: var(--color-white);
 	border-radius: 5px;
-	width: var(--card-width);
-	height: var(--card-height);
-/*	border: 1px solid var(--color);*/
+	border: 1px solid transparent;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -97,7 +106,7 @@ img.img-card{
 	display: flex;
 }
 .selected{
-	border-width: 2px;
+	border-color: var(--color);
 }
 
 /*COLOR CHOICES*/
@@ -113,12 +122,13 @@ img.img-card{
 
 /*STRUCTURES*/
 #deck{
+	padding: var(--pad);
+	width: auto;
 	background: var(--color-grey);
 	display: grid;
 	grid-template-columns: repeat(9, 1fr);
 	grid-template-rows: repeat(9, 1fr);
 	gap: var(--pad);
-
 }
 .setup{
 	position: relative;
@@ -136,22 +146,37 @@ img.img-card{
 .game{
 	height: 100vh;
 	position: relative;
-	background: var(--color-grey);
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+}
+#info{
+	padding-right: var(--pad);
+	max-width: 200px;
+}
+#message{
+	height: 5em;
+}
+
+h2{
+	border-bottom: 1px solid;
+}
+#gamestats{
+	border-bottom: 1px solid;
+	margin-bottom: var(--pad);
 }
 #board{
-	margin: auto;
+	background: var(--color-grey);
+	padding: var(--pad);
 	display: grid;
 	justify-content: center;
 	gap: var(--pad);
 	grid-template-columns: repeat(4, var(--card-width));
 	grid-template-rows: repeat(3, var(--card-height));
 }
-#gamestats{
-	position: absolute;
-	top: 0;
-}
+
+
+
 /*CARD*/
 .back{
 	position: absolute;
