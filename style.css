@@ -7,7 +7,7 @@
 	--card-width: calc( var(--shape-size)*3.5);
 	--card-height: calc( var(--shape-size)*4.75);
 	--color: rgb(80 80 80);
-	--color-grey: rgb(220 220 220);
+	--color-grey: rgb(230 220 200);
 	--color-white: white;
 	--color1: rgb(255 0 0);
 	--color2: rgb(0 170 115);
@@ -37,11 +37,12 @@ section{
 }
 
 figure{
-	height: var(--shape-size);
-	width: var(--shape-size);
-	margin: var(--pad);
 }
 
+img.img-card{
+	display: block;
+	width: 100%;
+}
 /*SHAPE CHOICES*/
 .shape1{
 	width: calc( var(--shape-size)*1.75);
@@ -86,10 +87,14 @@ figure{
 	border-radius: 5px;
 	width: var(--card-width);
 	height: var(--card-height);
-	border: 1px solid var(--color);
+/*	border: 1px solid var(--color);*/
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
+}
+.item{
+	display: flex;
 }
 .selected{
 	border-width: 2px;
@@ -107,6 +112,14 @@ figure{
 }
 
 /*STRUCTURES*/
+#deck{
+	background: var(--color-grey);
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+	gap: var(--pad);
+
+}
 .setup{
 	position: relative;
 	display: flex;

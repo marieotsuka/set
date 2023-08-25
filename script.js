@@ -1,9 +1,3 @@
-
-let deck = []
-let currentDeck = [];
-let clickCount = 0;
-let hand = [];
-
 let setData = {
 	deck: [],
 	currentDeck: [],
